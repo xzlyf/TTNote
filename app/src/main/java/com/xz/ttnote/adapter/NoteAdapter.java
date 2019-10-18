@@ -135,6 +135,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                         //两秒后自动隐藏菜单
                         handler.postDelayed(autoHide, 2000);
                     }
+                    
                     return true;
                 }
             });
