@@ -1,12 +1,14 @@
 package com.xz.ttnote.activity;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.orhanobut.logger.Logger;
 import com.xz.ttnote.R;
 import com.xz.ttnote.adapter.NoteAdapter;
 import com.xz.ttnote.base.BaseActivity;
@@ -60,6 +62,18 @@ public class MainActivity extends BaseActivity {
             getLocalNote();
         } catch (IOException e) {
             e.printStackTrace();
+            sToast("资源文件读取失败");
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            getLocalNote();
+        } catch (IOException e) {
+            e.printStackTrace();
+            sToast("资源文件读取失败");
         }
     }
 
@@ -102,7 +116,7 @@ public class MainActivity extends BaseActivity {
             }
         }
         //反转list ，时间前在前
-        Collections.reverse(mlist);
+//        Collections.reverse(mlist);
         adapter.refresh(mlist);
 
     }

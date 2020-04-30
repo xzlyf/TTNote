@@ -49,6 +49,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     }
 
     public void refresh(List<Note> list) {
+        mList.clear();
         mList.addAll(list);
         notifyDataSetChanged();
     }
@@ -135,7 +136,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                         //两秒后自动隐藏菜单
                         handler.postDelayed(autoHide, 2000);
                     }
-                    
+
                     return true;
                 }
             });
